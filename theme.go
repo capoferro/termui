@@ -31,10 +31,11 @@ type RootTheme struct {
 
 	BarChart        BarChartTheme
 	Gauge           GaugeTheme
-	Plot            PlotTheme
+	Input           InputTheme
 	List            ListTheme
 	Paragraph       ParagraphTheme
 	PieChart        PieChartTheme
+	Plot            PlotTheme
 	Sparkline       SparklineTheme
 	StackedBarChart StackedBarChartTheme
 	Tab             TabTheme
@@ -57,9 +58,9 @@ type GaugeTheme struct {
 	Label Style
 }
 
-type PlotTheme struct {
-	Lines []Color
-	Axes  Color
+type InputTheme struct {
+	Text   Style
+	Cursor Style
 }
 
 type ListTheme struct {
@@ -72,6 +73,11 @@ type ParagraphTheme struct {
 
 type PieChartTheme struct {
 	Slices []Color
+}
+
+type PlotTheme struct {
+	Lines []Color
+	Axes  Color
 }
 
 type SparklineTheme struct {
@@ -110,6 +116,20 @@ var Theme = RootTheme{
 		Labels: StandardStyles,
 	},
 
+	Gauge: GaugeTheme{
+		Bar:   ColorWhite,
+		Label: NewStyle(ColorWhite),
+	},
+
+	Input: InputTheme{
+		Text:   NewStyle(ColorWhite),
+		Cursor: NewStyle(ColorWhite, ColorClear, ModifierReverse),
+	},
+
+	List: ListTheme{
+		Text: NewStyle(ColorWhite),
+	},
+
 	Paragraph: ParagraphTheme{
 		Text: NewStyle(ColorWhite),
 	},
@@ -118,19 +138,9 @@ var Theme = RootTheme{
 		Slices: StandardColors,
 	},
 
-	List: ListTheme{
-		Text: NewStyle(ColorWhite),
-	},
-
-	StackedBarChart: StackedBarChartTheme{
-		Bars:   StandardColors,
-		Nums:   StandardStyles,
-		Labels: StandardStyles,
-	},
-
-	Gauge: GaugeTheme{
-		Bar:   ColorWhite,
-		Label: NewStyle(ColorWhite),
+	Plot: PlotTheme{
+		Lines: StandardColors,
+		Axes:  ColorWhite,
 	},
 
 	Sparkline: SparklineTheme{
@@ -138,9 +148,10 @@ var Theme = RootTheme{
 		Line:  ColorWhite,
 	},
 
-	Plot: PlotTheme{
-		Lines: StandardColors,
-		Axes:  ColorWhite,
+	StackedBarChart: StackedBarChartTheme{
+		Bars:   StandardColors,
+		Nums:   StandardStyles,
+		Labels: StandardStyles,
 	},
 
 	Table: TableTheme{

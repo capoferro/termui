@@ -56,6 +56,7 @@ func main() {
 - [Canvas](./_examples/canvas.go) (for drawing braille dots)
 - [Gauge](./_examples/gauge.go)
 - [Image](./_examples/image.go)
+- [Input](./_examples/input.go)
 - [List](./_examples/list.go)
 - [Paragraph](./_examples/paragraph.go)
 - [PieChart](./_examples/piechart.go)
